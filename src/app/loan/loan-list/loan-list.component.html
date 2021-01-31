@@ -1,0 +1,29 @@
+
+<hr>
+<div class="row" >
+    <div class="col-md-12" style="background-color: rgba(224, 223, 230, 0.863);">
+
+        <div class="pull-left">
+            <h3 class="list-group-item-heading " >Loan Number</h3>
+        </div>
+      
+        <div style="padding-left: 25%; "> 
+            <h3 class="list-group-item-heading">Member Name</h3>
+        </div> 
+       
+        <div style="padding-left: 60%;">   
+            <h3 class="list-group-item-heading">Amount</h3>
+        </div>    
+    
+        <div style="padding-left: 80%; ">
+            <h3 class="list-group-item-heading">Loan End Date</h3>
+        </div> 
+        
+        <app-loan-item *ngFor="let loan of loans" [loanItem]="loan" ></app-loan-item>
+    
+    </div> 
+</div> 
+ 
+
+
+

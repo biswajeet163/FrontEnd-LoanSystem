@@ -1,0 +1,38 @@
+<div class="container" style="margin-top: 7%;">
+
+
+    <div class="row " style=" height: 10; padding-top: 0%; background-color: rgb(219, 111, 10);">
+
+        <div class="jumbotron " style="text-align: center; background-color: rgb(219, 111, 10); margin: 0%;">
+            <h1 style="font-style: italic; font-weight:bold; color:rgb(24, 5, 190); " >RaboBank</h1>
+            <div class="alert alert-warning myAlert"  *ngIf="loginError">Your Credentials is Wrong</div>
+        </div>
+        <!-- <div class="alert alert-warning myAlert"> </div> -->
+ 
+      
+
+        <div class="col-xs-12 col-md-6 col-md-offset-3" style="background-color:rgb(119, 138, 172);  ">
+            <h2>Welcome</h2>
+            <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="Email1">UserName</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter UserName"
+                        formControlName="email">
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            formControlName="password">
+                    </div>
+                    <button type="submit" class="btn btn-success" [disabled]="!formData.valid">Login</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="row " style=" height: 12;  padding-top: 9%; background-color: rgb(24, 5, 190);">
+       
+
+    </div>
+</div>

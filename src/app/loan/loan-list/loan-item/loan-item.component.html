@@ -1,0 +1,20 @@
+<a  class="list-group-item clearfix" (click)="onSelect()" style="cursor: pointer;" >
+    
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ loanItem.loanNumber }}</h4>
+    </div>
+
+    <div style="padding-left: 25%;">
+        <h4 class="list-group-item-heading">{{ loanItem.memberName }}</h4>
+    </div> 
+
+    <div style="padding-left: 60%;"> 
+        <h4 class="list-group-item-heading">{{ loanItem.amount }}</h4> 
+    </div>
+
+    <div style="padding-left: 80%;"> 
+        <h4 class="list-group-item-heading">{{ loanItem.endDate | date :'short'}}</h4>
+    </div>
+
+  
+</a>          

@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 myhead" style="background-color:lavender;">Loan Number</div>
+        <div class="col-sm-8 mydata " style="background-color:lavender;">{{showLoanDetail.loanNumber}}</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 myhead" style="background-color:lavender;">Member Name</div>
+        <div class="col-sm-8 mydata" style="background-color:lavender;">{{showLoanDetail.memberName}}</div>
+    </div> 
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 myhead" style="background-color:lavender;">Loan Type</div>
+        <div class="col-sm-8 mydata" style="background-color:lavender;">{{showLoanDetail.loanType}}</div>
+    </div>
+    <hr> 
+    <div class="row">
+        <div class="col-sm-4 myhead" style="background-color:lavender;">Loan Term</div>
+        <div class="col-sm-8 mydata" style="background-color:lavender;">{{showLoanDetail.loanTerm}}</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 myhead" style="background-color:lavender;">Loan Amount </div>
+        <div class="col-sm-8 mydata" style="background-color:lavender;">{{showLoanDetail.amount}}</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 myhead" style="background-color:lavender;">Loan Date Start</div>
+        <div class="col-sm-8 mydata" style="background-color:lavender;">{{showLoanDetail.originDate | date :'short'}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 myhead" style="background-color:lavender;">Loan Date End</div>
+        <div class="col-sm-8 mydata" style="background-color:lavender;">{{showLoanDetail.endDate | date :'short'}}</div>
+    </div>
+    <hr> 
+ 
+
+    <div class="container col-sm-8" style="margin-left: 20%;">
+        <div class="collapse navbar-collapse">
+            <div class="row ">
+                <div class="col-sm-4 "><button class="btn btn-success" (click)="onBack()">Back</button></div>
+                <div class="col-sm-4 " *ngIf="isAdminOrNot"><button class="btn btn-danger" (click)="onDelete()">Delete</button>
+                </div>
+                <div class="col-sm-4 " *ngIf="isAdminOrNot"><button class="btn btn-primary"
+                        (click)="onModify()">Modify</button></div>
+            </div>
+        </div> 
+    </div> 
+
+ 
+</div> 
+
+<!--
+<app-loan-update *ngIf="editMode" [editItem]="currentLoanDetail"></app-loan-update> 
+
+
+-->

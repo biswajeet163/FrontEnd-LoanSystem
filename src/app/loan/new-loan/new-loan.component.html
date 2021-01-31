@@ -1,0 +1,51 @@
+<div class="container" style="background-color: rgb(212, 191, 122);">
+    <form [formGroup]="newLoanForm" (ngSubmit)="onSubmit()">
+
+        <hr>
+
+        <div class="form-group col-sm-12">
+            <label for="name">Member Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" formControlName="memberName">
+        </div>
+
+        <div class="form-group col-sm-12">
+            <label for="loanType">Loan Type</label>
+            <input type="text" class="form-control" id="loanType"
+                placeholder="Eneter Loan Type- Car, Home, Bussiness....." formControlName="loanType">
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label for="loanTerm">Loan Term</label>
+            <select name="term" id="term" class="form-control" formControlName="loanTerm">
+                <option value="short">Short</option>
+                <option value="mid">Mid</option>
+                <option value="long">Long</option>
+            </select> 
+        </div> 
+
+        <div class="form-group col-sm-6">
+            <label for="amount">Loan Amount</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter Loan Amount"
+                formControlName="amount">
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label for="startDate">Loan Origin Date</label>
+            <input type="date" class="form-control" id="startDate" placeholder="Choose Start Date"
+                formControlName="originDate">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="endDate">Loan End Date</label>
+            <input type="date" class="form-control" id="endDate" placeholder="Choose End Date"
+                formControlName="endDate">
+        </div>
+
+        <div class="form-group col-sm-12"></div>
+
+        <button type="reset" class="btn btn-primary pull-left" (click)="onBack()">Back</button>
+        <button type="submit" class="btn btn-success pull-right" [disabled]="!newLoanForm.valid">Submit</button>
+
+        <div class="form-group col-sm-12"></div>
+
+    </form> 
+</div>
