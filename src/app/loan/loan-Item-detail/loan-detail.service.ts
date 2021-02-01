@@ -10,7 +10,7 @@ import { Loan } from '../loan';
 })
 export class LoanDetailService {
  
-  isAdmin = false;
+  isAdmin = false; 
 
   back = new Subject<boolean>();
   makeHeaderOff = new Subject<boolean>();

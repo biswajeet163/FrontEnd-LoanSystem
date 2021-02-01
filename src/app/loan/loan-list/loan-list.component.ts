@@ -5,7 +5,7 @@ import { GlobalService } from 'src/app/global.service';
 import { HeaderService } from 'src/app/header/header.service';
 
 import { Loan } from '../loan';
-
+ 
 @Component({
   selector: 'app-loan-list',
   templateUrl: './loan-list.component.html',
@@ -20,7 +20,7 @@ export class LoanListComponent implements OnInit, OnDestroy {
   //detailMode=true;  
 
   constructor(
-    private router: Router,
+    private router: Router, 
     private globalService: GlobalService,
     private headerService: HeaderService) {
 
@@ -121,7 +121,7 @@ export class LoanListComponent implements OnInit, OnDestroy {
           return a.loanNumber - b.loanNumber  ;
         });
       },
-      error => {
+      error => { 
         alert('Session Out');
         this.router.navigate(['/']);
       }

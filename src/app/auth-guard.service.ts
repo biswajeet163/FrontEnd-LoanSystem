@@ -19,5 +19,5 @@ export class AuthGuardService implements CanActivate {
     localStorage.clear();
     this.router.navigate(['login']);
     return false;
-  }
+  } 
 }

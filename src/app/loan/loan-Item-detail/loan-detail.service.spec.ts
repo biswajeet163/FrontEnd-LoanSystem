@@ -11,7 +11,7 @@ import { LoanDetailService } from './loan-detail.service';
 class RouterStub {
     navigate(params) {
 
-    } 
+    }  
 }
 
 
@@ -30,7 +30,7 @@ fdescribe('LoanaDetailService', () => {
         TestBed.configureTestingModule({
             providers: [
                 { provide: Router, useClass: RouterStub },
-            ]
+            ] 
         });
         globalService = new GlobalService(null);
         service = new LoanDetailService(globalService, null, null);
@@ -42,12 +42,12 @@ fdescribe('LoanaDetailService', () => {
         expect(service).toBeTruthy();
     });
 
-    xit('Setting Admin or Not', () => {
+    it('Setting Admin or Not', () => {
         service.setAdminOrNot(true);
         expect(service['isAdmin'].valueOf).toEqual(false);
     });
 
-    xit('Create Back Event', () => {
+    it('Create Back Event', () => {
         service.createBackEvent();
         expect(service).toHaveBeenCalled();
     });
@@ -90,7 +90,7 @@ fdescribe('LoanaDetailService', () => {
 
 
 
-    xit('Deleting a Loan Item', () => {
+    it('Deleting a Loan Item', () => {
         // Arrange 
 
         let loan = new Loan(1,

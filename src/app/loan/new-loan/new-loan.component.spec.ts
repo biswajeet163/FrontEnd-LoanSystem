@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EMPTY, Observable, of } from 'rxjs';
 import { GlobalService } from 'src/app/global.service';
@@ -13,7 +14,7 @@ class RouterStub {
     }
 }
 
-class ActivatedRouterStub {
+class ActivatedRouterStub { 
     params: Observable<any> = EMPTY;
 }
 
@@ -26,7 +27,7 @@ fdescribe('NewLoanComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [HttpClientModule],
+            imports: [HttpClientModule,],// FormsModule, ReactiveFormsModule],
             declarations: [NewLoanComponent],
             providers: [
                 GlobalService,

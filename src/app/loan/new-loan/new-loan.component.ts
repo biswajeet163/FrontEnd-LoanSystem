@@ -14,7 +14,7 @@ export class NewLoanComponent implements OnInit {
 
   newLoanForm: FormGroup;
  
-  constructor(private globalService: GlobalService,
+  constructor(private globalService: GlobalService, 
     private router: Router,
     private activeRoute: ActivatedRoute) { }
 
