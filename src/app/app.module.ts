@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { NewLoanComponent } from './loan/new-loan/new-loan.component';
 import { GlobalService } from './global.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,

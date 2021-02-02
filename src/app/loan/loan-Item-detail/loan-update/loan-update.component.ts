@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,11 +13,15 @@ import { LoanDetailService } from '../loan-detail.service';
 })
 export class LoanUpdateComponent implements OnInit {
 
+  originDate: Date;
+  endDate: Date;
+
   needToUpdateLoanItem: Loan;
 
   updatedForm: FormGroup;
 
-  constructor(private globalService: GlobalService,
+  constructor(
+    private globalService: GlobalService,
     private loanDetailService: LoanDetailService,
     private router: Router,
     private activeRoute: ActivatedRoute) { }
@@ -32,8 +35,6 @@ export class LoanUpdateComponent implements OnInit {
     if (this.needToUpdateLoanItem === undefined) {
       this.onBack();
     }
-
-
     //******************************************************** */
     try {
       throw new Error('Something bad happened');
@@ -42,8 +43,6 @@ export class LoanUpdateComponent implements OnInit {
       console.log(e);
     }
 
-
-    //console.log(this.needToUpdateLoanItem.endDate);
 
 
     this.updatedForm = new FormGroup({
@@ -61,15 +60,14 @@ export class LoanUpdateComponent implements OnInit {
       loanNumber: this.needToUpdateLoanItem.loanNumber,
       memberName: this.needToUpdateLoanItem.memberName,
       loanType: this.needToUpdateLoanItem.loanType,
-      loanTerm: this.needToUpdateLoanItem.loanTerm,
+      loanTerm: this.needToUpdateLoanItem.loanTerm, 
       amount: this.needToUpdateLoanItem.amount,
-      originDate: this.needToUpdateLoanItem.originDate,
-      endDate: this.needToUpdateLoanItem.endDate
+      //originDate: this.needToUpdateLoanItem.originDate,
+      //endDate: this.needToUpdateLoanItem.endDate
 
     });
-
-
-
+    this.originDate = this.needToUpdateLoanItem.endDate;
+    this.endDate = this.needToUpdateLoanItem.endDate;
   }
 
   onBack() {

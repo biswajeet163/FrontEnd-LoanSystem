@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.48% </span>
+                <span class="strong">82.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/21</span>
+                <span class='fraction'>19/23</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">81.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/20</span>
+                <span class='fraction'>18/22</span>
             </div>
         
             
@@ -161,10 +161,7 @@
 <a name='L102'></a><a href='#L102'>102</a>
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a>
-<a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,6 +175,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,15 +199,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -232,9 +229,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -269,8 +265,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-import { Component, OnInit } from '@angular/core';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from 'src/app/global.service';
@@ -285,11 +280,15 @@ import { LoanDetailService } from '../loan-detail.service';
 })
 export class LoanUpdateComponent implements OnInit {
 &nbsp;
+  originDate: Date;
+  endDate: Date;
+&nbsp;
   needToUpdateLoanItem: Loan;
 &nbsp;
   updatedForm: FormGroup;
 &nbsp;
-  constructor(private globalService: GlobalService,
+  constructor(
+    private globalService: GlobalService,
     private loanDetailService: LoanDetailService,
     private router: Router,
     private activeRoute: ActivatedRoute) { }
@@ -303,8 +302,6 @@ export class LoanUpdateComponent implements OnInit {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (this.needToUpdateLoanItem === undefined) {
       this.onBack();
     }
-&nbsp;
-&nbsp;
     //******************************************************** */
     try {
       throw new Error('Something bad happened');
@@ -313,8 +310,6 @@ export class LoanUpdateComponent implements OnInit {
       console.log(e);
     }
 &nbsp;
-&nbsp;
-    //console.log(this.needToUpdateLoanItem.endDate);
 &nbsp;
 &nbsp;
     this.updatedForm = new FormGroup({
@@ -332,15 +327,14 @@ export class LoanUpdateComponent implements OnInit {
       loanNumber: this.needToUpdateLoanItem.loanNumber,
       memberName: this.needToUpdateLoanItem.memberName,
       loanType: this.needToUpdateLoanItem.loanType,
-      loanTerm: this.needToUpdateLoanItem.loanTerm,
+      loanTerm: this.needToUpdateLoanItem.loanTerm, 
       amount: this.needToUpdateLoanItem.amount,
-      originDate: this.needToUpdateLoanItem.originDate,
-      endDate: this.needToUpdateLoanItem.endDate
+      //originDate: this.needToUpdateLoanItem.originDate,
+      //endDate: this.needToUpdateLoanItem.endDate
 &nbsp;
     });
-&nbsp;
-&nbsp;
-&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.originDate = this.needToUpdateLoanItem.endDate;</span>
+<span class="cstat-no" title="statement not covered" >    this.endDate = this.needToUpdateLoanItem.endDate;</span>
   }
 &nbsp;
   onBack() {
@@ -382,7 +376,7 @@ export class LoanUpdateComponent implements OnInit {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Feb 02 2021 21:09:12 GMT+0530 (India Standard Time)
+                at Tue Feb 02 2021 23:22:51 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
