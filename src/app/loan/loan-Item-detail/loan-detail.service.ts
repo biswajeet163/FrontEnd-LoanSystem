@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { GlobalService } from 'src/app/global.service';
+import { GlobalService } from 'src/app/global.service'; 
 import { Loan } from '../loan';
 
 
@@ -14,7 +14,7 @@ export class LoanDetailService {
 
   back = new Subject<boolean>();
   makeHeaderOff = new Subject<boolean>();
-
+ 
   currentLoanDetail = new Subject<Loan>(); 
   updateLoanItem: Loan;
 

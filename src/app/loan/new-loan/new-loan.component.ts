@@ -16,7 +16,7 @@ export class NewLoanComponent implements OnInit {
  
   constructor(private globalService: GlobalService, 
     private router: Router,
-    private activeRoute: ActivatedRoute) { }
+    private activeRoute: ActivatedRoute) { } 
 
 
   ngOnInit(): void {

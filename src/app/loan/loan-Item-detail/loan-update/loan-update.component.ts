@@ -13,25 +13,38 @@ import { LoanDetailService } from '../loan-detail.service';
   styleUrls: ['./loan-update.component.css']
 })
 export class LoanUpdateComponent implements OnInit {
- 
+
   needToUpdateLoanItem: Loan;
- 
-  updatedForm: FormGroup; 
+
+  updatedForm: FormGroup;
 
   constructor(private globalService: GlobalService,
     private loanDetailService: LoanDetailService,
     private router: Router,
     private activeRoute: ActivatedRoute) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     if (localStorage.getItem('token') === null) {
       this.router.navigate(['../']);
     }
 
     this.needToUpdateLoanItem = this.loanDetailService.getModify();
+    if (this.needToUpdateLoanItem === undefined) {
+      this.onBack();
+    }
 
-    console.log(this.needToUpdateLoanItem.endDate);
-    
+
+    //******************************************************** */
+    try {
+      throw new Error('Something bad happened');
+    }
+    catch (e) {
+      console.log(e);
+    }
+
+
+    //console.log(this.needToUpdateLoanItem.endDate);
+
 
     this.updatedForm = new FormGroup({
       'loanNumber': new FormControl(''),
@@ -47,14 +60,17 @@ export class LoanUpdateComponent implements OnInit {
     this.updatedForm.patchValue({
       loanNumber: this.needToUpdateLoanItem.loanNumber,
       memberName: this.needToUpdateLoanItem.memberName,
-      loanType : this.needToUpdateLoanItem.loanType,
-      loanTerm : this.needToUpdateLoanItem.loanTerm, 
+      loanType: this.needToUpdateLoanItem.loanType,
+      loanTerm: this.needToUpdateLoanItem.loanTerm,
       amount: this.needToUpdateLoanItem.amount,
       originDate: this.needToUpdateLoanItem.originDate,
-      endDate : this.needToUpdateLoanItem.endDate
-      
+      endDate: this.needToUpdateLoanItem.endDate
+
     });
-  } 
+
+
+
+  }
 
   onBack() {
     this.router.navigate(['../'], { relativeTo: this.activeRoute });
@@ -74,7 +90,7 @@ export class LoanUpdateComponent implements OnInit {
       this.updatedForm.value.memberName,
       this.updatedForm.value.loanType,
       this.updatedForm.value.loanTerm,
-      this.updatedForm.value.amount, 
+      this.updatedForm.value.amount,
       this.updatedForm.value.originDate,
       this.updatedForm.value.endDate
     );
@@ -85,6 +101,6 @@ export class LoanUpdateComponent implements OnInit {
     this.router.navigate(['../'], { relativeTo: this.activeRoute });
 
   }
- 
+
 
 }

@@ -45,10 +45,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
     if (this.isAdmin === true) {
+      
+      
       //set isAdmin or Not for Item-Detail shoe The Modify/Delete/ and BAck Button Working according to user/admin
       this.loanDetailService.setAdminOrNot(true);
     }
     else {
+     
       //set isAdmin or Not for Item-Detail shoe The Modify/Delete/ and BAck Button Working according to user/admin
       this.loanDetailService.setAdminOrNot(false);
     }
